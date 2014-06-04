@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/addCart"
             android:contentDescription="addToCart"
-            android:background="@drawable/cart"
+            android:background="@drawable/acart"
             android:clickable="true" />
     </LinearLayout>
 

@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/removeCart"
             android:contentDescription="removeFromCart"
-            android:background="@drawable/cart"
+            android:background="@drawable/rcart"
             android:clickable="true" />
 
         <TextView
