@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Product id (pid) - will be HIDDEN - used to pass to other activity -->
+
+    <!-- Name Label -->
+
+    <TextView
+        android:id="@+id/id_tip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:clickable="false"
+        android:visibility="gone" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/imagine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="pozaProdus"
+            android:clickable="false"
+            android:src="@android:drawable/gallery_thumb"/>
+
+        <TextView
+            android:id="@+id/nume"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="6dip"
+            android:paddingTop="6dip"
+            android:textSize="17sp"
+            android:textColor="#FFFFFF"
+            android:clickable="false"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</LinearLayout>

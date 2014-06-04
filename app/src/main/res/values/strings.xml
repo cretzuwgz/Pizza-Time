@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pizza Time</string>
+    <string name="title_section1">Home</string>
+    <string name="title_section2">Oferte</string>
+    <string name="title_section3">Meniu</string>
+    <string name="title_section4">Comanda</string>
+    <string name="title_section5">Harta</string>
+    <string name="navigation_drawer_open">Deschide meniu</string>
+    <string name="navigation_drawer_close">Inchide meniu</string>
+    <string name="action_example">About</string>
+    <string name="action_settings">Setari</string>
+    <string name="title_activity_home">Home</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_harta">Map</string>
+
+</resources>
