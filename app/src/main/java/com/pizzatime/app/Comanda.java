@@ -25,8 +25,9 @@ public class Comanda extends ListFragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     // JSON Node names
-    private static final String TAG_ID = "id_meniu";
-    private static final String TAG_NUME = "nume_meniu";
+    private static final String TAG_OFERTA = "id_meniu";
+    private static final String TAG_PRODUS = "id_prod";
+    private static final String TAG_NUME = "nume";
     private static final String TAG_PRET = "pret";
     private static final String TAG_DESC = "descriere";
     private static final String TAG_POZA = "link_poza";
@@ -106,7 +107,10 @@ public class Comanda extends ListFragment {
         @Override public long getItemId(int position) {
             final String[] mKeys;
             mKeys = MainActivity.comanda.keySet().toArray(new String[MainActivity.comanda.size()]);
-            return Long.parseLong((String)MainActivity.comanda.get(mKeys[position]).get(TAG_ID));
+            if(MainActivity.comanda.get(mKeys[position]).get("TIP").equals("OFERTA"))
+                return Long.parseLong((String)MainActivity.comanda.get(mKeys[position]).get(TAG_OFERTA));
+            else
+                return Long.parseLong((String)MainActivity.comanda.get(mKeys[position]).get(TAG_PRODUS));
         }
 
         @Override
@@ -117,7 +121,6 @@ public class Comanda extends ListFragment {
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.list_comanda, null);
                 holder = new ViewHolder();
-                holder.id = (TextView)convertView.findViewById(R.id.id_oferta);
                 holder.nume = (TextView)convertView.findViewById(R.id.nume);
                 holder.pret = (TextView)convertView.findViewById(R.id.pret);
                 holder.desc = (TextView)convertView.findViewById(R.id.desc);
@@ -142,7 +145,6 @@ public class Comanda extends ListFragment {
             } else {
                 holder = (ViewHolder)convertView.getTag();
             }
-            holder.id.setText((String)MainActivity.comanda.get(mKeys[position]).get(TAG_ID));
             holder.nume.setText((String)MainActivity.comanda.get(mKeys[position]).get(TAG_NUME));
             holder.pret.setText(MainActivity.comanda.get(mKeys[position]).get(TAG_PRET)+ " lei");
             holder.desc.setText((String)MainActivity.comanda.get(mKeys[position]).get(TAG_DESC));
@@ -152,7 +154,7 @@ public class Comanda extends ListFragment {
         }
 
         private class ViewHolder {
-            public TextView id, nume, pret, desc, cant;
+            public TextView nume, pret, desc, cant;
             public ImageView img;
         }
     }

@@ -56,7 +56,7 @@ public class Produse extends ListFragment {
     // JSON Node names
     private static final String TAG_PRODUSE = "produse";
     private static final String TAG_ID = "id_prod";
-    private static final String TAG_NUME = "nume_prod";
+    private static final String TAG_NUME = "nume";
     private static final String TAG_PRET = "pret";
     private static final String TAG_POZA = "link_poza";
 
@@ -229,11 +229,10 @@ public class Produse extends ListFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
             if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.list_oferta, null);
+                convertView = mInflater.inflate(R.layout.list_produs, null);
                 holder = new ViewHolder();
                 holder.id = (TextView)convertView.findViewById(R.id.id_oferta);
-                holder.nume = (TextView)convertView.findViewById(R.id.desc);
-                holder.nume.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                holder.nume = (TextView)convertView.findViewById(R.id.nume);
                 holder.pret = (TextView)convertView.findViewById(R.id.pret);
                 holder.img = (ImageView)convertView.findViewById(R.id.imagine);
                 convertView.setTag(holder);

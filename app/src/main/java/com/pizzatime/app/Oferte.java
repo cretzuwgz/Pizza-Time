@@ -54,7 +54,7 @@ public class Oferte extends ListFragment {
     // JSON Node names
     private static final String TAG_OFERTA = "oferta";
     private static final String TAG_ID = "id_meniu";
-    private static final String TAG_NUME = "nume_meniu";
+    private static final String TAG_NUME = "nume";
     private static final String TAG_PRET = "pret";
     private static final String TAG_DESC = "descriere";
     private static final String TAG_POZA = "link_poza";
