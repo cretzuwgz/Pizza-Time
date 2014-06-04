@@ -1,7 +1,14 @@
 package com.pizzatime.app;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -48,6 +55,52 @@ public class MainActivity extends ActionBarActivity
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, Home.newInstance())
                 .commit();
+        if (!isOnline())
+        {
+            showNoConnectionDialog(this);
+        }
+    }
+    public void showNoConnectionDialog(Context ctx1)
+    {
+        final Context ctx = ctx1;
+        AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+        builder.setCancelable(true);
+        builder.setMessage("Iti trebuie conexiune la internet pentru a putea folosi aplicatia.");
+        builder.setTitle("Acces internet");
+        builder.setPositiveButton("Setari", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which)
+            {
+                ctx.startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int which)
+            {
+                finish();
+            }
+        });
+
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener()
+        {
+            public void onCancel(DialogInterface dialog) {
+                finish();
+            }
+        });
+
+        builder.show();
+    }
+
+    public boolean isOnline()
+    {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting())
+        {
+            return true;
+        }
+        return false;
     }
 
     @Override
