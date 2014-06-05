@@ -1,108 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:windowSoftInputMode="adjustResize">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:id="@+id/scrollView" >
 
-    <!-- Name Label -->
-    <TextView android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nume*"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17sp"/>
+        android:orientation="vertical"
+        android:windowSoftInputMode="adjustResize">
 
-    <!-- Input Name -->
-    <EditText android:id="@+id/inputNume"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="15dip"
-        android:singleLine="true"/>
+        <!-- Name Label -->
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Nume*"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip"
+            android:textSize="17sp"/>
 
-    <!-- Price Label -->
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Telefon*"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17sp"/>
+        <!-- Input Name -->
+        <EditText android:id="@+id/inputNume"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:singleLine="true"/>
 
-    <!-- Input Price -->
-    <EditText android:id="@+id/inputTel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="15dip"
-        android:singleLine="true"
-        android:inputType="numberDecimal"/>
+        <!-- Price Label -->
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefon*"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip"
+            android:textSize="17sp"/>
 
-    <!-- Description Label -->
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Adresa*"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17sp"/>
+        <!-- Input Price -->
+        <EditText android:id="@+id/inputTel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:singleLine="true"
+            android:inputType="numberDecimal"/>
 
-    <!-- Input description -->
-    <EditText android:id="@+id/inputAdresa"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="15dip"
-        android:lines="2"
-        android:gravity="top"/>
+        <!-- Description Label -->
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Adresa*"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip"
+            android:textSize="17sp"/>
 
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17sp"/>
+        <!-- Input description -->
+        <EditText android:id="@+id/inputAdresa"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:lines="2"
+            android:gravity="top"/>
 
-    <!-- Input Name -->
-    <EditText android:id="@+id/inputEmail"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="15dip"
-        android:singleLine="true"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip"
+            android:textSize="17sp"/>
 
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Observatie"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17sp"/>
+        <!-- Input Name -->
+        <EditText android:id="@+id/inputEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:singleLine="true"/>
 
-    <EditText android:id="@+id/inputObs"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="15dip"
-        android:lines="2"
-        android:gravity="top"/>
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Observatie"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip"
+            android:textSize="17sp"/>
 
-    <!-- Button Create Product -->
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Campurile marcate cu * sunt obligatorii."
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="13sp"/>
+        <EditText android:id="@+id/inputObs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_marginBottom="15dip"
+            android:lines="2"
+            android:gravity="top"/>
 
-    <Button android:id="@+id/btnTrimite"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Trimite Comanda"
-        android:layout_marginTop="25dp" />
+        <!-- Button Create Product -->
+        <TextView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Campurile marcate cu * sunt obligatorii."
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="10dip"
+            android:textSize="13sp"/>
 
-</LinearLayout>
+        <Button android:id="@+id/btnTrimite"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Trimite Comanda"
+            android:layout_marginTop="25dp" />
+
+    </LinearLayout>
+
+</ScrollView>
