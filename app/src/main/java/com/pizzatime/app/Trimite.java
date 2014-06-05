@@ -42,7 +42,6 @@ public class Trimite extends Fragment {
     EditText inputObs;
     String id_client;
     String id_comanda;
-    boolean check=true;
 
     // url to create new product
     private static String url_client = "http://pizzatime.webege.com/add_client.php";
@@ -80,9 +79,17 @@ public class Trimite extends Fragment {
         btnTrimite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new CreateClient().execute();
-                new CreateComanda().execute();
-                new AddOferte().execute();
+                if(inputNume.getText().toString().equals("") ||
+                        inputTel.getText().toString().equals("") ||
+                        inputAdresa.getText().toString().equals(""))
+                    Toast.makeText(getActivity().getApplicationContext(),
+                            "Completati toate campurile obligatorii!",
+                            Toast.LENGTH_LONG).show();
+                else {
+                    new CreateClient().execute();
+                    new CreateComanda().execute();
+                    new AddOferte().execute();
+                }
             }
         });
         return rootView;
@@ -131,17 +138,10 @@ public class Trimite extends Fragment {
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            if(nume.equals("")||tel.equals("")||adresa.equals("")) {
-                check=false;
-                return null;
-            }
-            else {
-                params.add(new BasicNameValuePair("nume", nume));
-                params.add(new BasicNameValuePair("tel", tel));
-                params.add(new BasicNameValuePair("adresa", adresa));
-                params.add(new BasicNameValuePair("email", email));
-                check=true;
-            }
+            params.add(new BasicNameValuePair("nume", nume));
+            params.add(new BasicNameValuePair("tel", tel));
+            params.add(new BasicNameValuePair("adresa", adresa));
+            params.add(new BasicNameValuePair("email", email));
 
             // getting JSON Object
             // Note that create product url accepts POST method
@@ -159,18 +159,7 @@ public class Trimite extends Fragment {
             return null;
         }
 
-        /**
-         * After completing background task Dismiss the progress dialog
-         * **/
-        protected void onPostExecute(String file_url) {
-            // dismiss the dialog once
-            if(!check) {
-                pDialog.dismiss();
-                Toast.makeText(getActivity().getApplicationContext(),
-                        "Completati toate campurile obligatorii!",
-                        Toast.LENGTH_LONG).show();
-            }
-        }
+
 
     }
     /**
@@ -190,9 +179,6 @@ public class Trimite extends Fragment {
          * Creating product
          * */
         protected String doInBackground(String... args) {
-
-            if(!check)
-                return null;
 
             String obs = inputObs.getText().toString();
 
@@ -218,14 +204,8 @@ public class Trimite extends Fragment {
             return null;
         }
 
-        /**
-         * After completing background task Dismiss the progress dialog
-         * **/
-        protected void onPostExecute(String file_url) {
-            // dismiss the dialog once
-        }
-
     }
+
     /**
      * Background Async Task to Add Oferte
      * */
@@ -241,8 +221,6 @@ public class Trimite extends Fragment {
          * */
         protected String doInBackground(String... args) {
 
-            if(!check)
-                return null;
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             for(Map.Entry<String, HashMap<String, Object>> entry : MainActivity.comanda.entrySet()) {
                 String id, url;
